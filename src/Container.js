@@ -1,54 +1,83 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import images from './data/data';
 
 const Container = () => {
-
-    const url = 'https://latelier.co/data/cats.json';
-    const requestOptions = {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-            'content-type': 'application/json'
-        }
-
-    };
+    const dataCat = [];
+    const [stateDataCat, setDataCat] = useState('')
 
 
-    const getImgCat = () => {
-        console.log("ok")
-        fetch(url, requestOptions)
-            .then(response => response.json())
-            .then(responseData => console.log(responseData))
-            .catch(error => console.log(error))
+    useEffect(() => {
+        images.forEach((image) => dataCat.push({ score: 0, url: image.url, id: image.id }))
+        console.log(dataCat)
+        setDataCat(dataCat)
+        console.log(stateDataCat[0].url)
+    }, [])
+
+
+
+
+
+
+
+    const randomImg = () => {
+        const urlRandom = Math.floor(Math.random() * images.length);
+        const url1 = images[urlRandom];
+
+        // console.log(images[urlRandom]);
+        // console.log(images[urlRandom].url);
+        // console.log(images[urlRandom].id);
+
+        const urlRandom1 = Math.floor(Math.random() * images.length);
+        const url2 = images[urlRandom1]
+
+        // console.log(images[urlRandom1]);
+        // console.log(images[urlRandom1].url);
+        // console.log(images[urlRandom1].id);
+
+        setStateUrl1(url1.url)
+        setStateUrl2(url2.url)
+
+        setStateId1(url1.id)
+        setStateId2(url2.id)
 
     }
 
 
-    useEffect(() => {
-        getImgCat()
-    })
+
+    const [stateUrl1, setStateUrl1] = useState(images[0].url)
+    const [stateUrl2, setStateUrl2] = useState(images[1].url)
+
+    const [stateId1, setStateId1] = useState(images[0].id)
+    const [stateId2, setStateId2] = useState(images[1].id)
+
+    const [score, setScore] = useState(0)
+
     return (
 
-        <div className="App">
-            <div className="_title">
-                <h6>Le chat le plus mingon</h6>
-            </div>
-            <div className="App-header">
-                <div>
 
-                    <img src="./media/chaton-errant-768x512.jpeg" alt="logo" />
-                    <img src="./media/chaton-errant-768x512.jpeg" alt="logo" />
+        <div className="App">
+            <div className="App-header">
+                <div style={{ display: "flex", cursor: "pointer" }}>
+                    <div style={{ marginRight: 40 }}>
+                        <img src={stateUrl1} alt="logo" style={{ width: 140, height: 160 }} class="img-thumbnail" onClick={randomImg} />
+                        <p>Score: {stateId1}</p>
+                    </div>
+                    <div>
+                        <img src={stateUrl2} alt="logo" style={{ width: 140, height: 160 }} class="img-thumbnail" onClick={randomImg} />
+                        <p>Score: {stateId2} </p>
+                    </div>
 
                 </div>
-                <p>
-                    Cliquez sur le chat plus migon pour voter.
+                <p className="text">
+                    Cliquez sur la photo pour voter pour le chat le plus migon
                     </p>
                 <a
                     className="App-link"
-                    href="https://reactjs.org"
+                    href="https://www.thiamibrahima.dev/"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Copy Right Ibrahima Thiam
+                    Copy Right Ibrahima Thiam 2020
                     </a>
             </div>
         </div>
