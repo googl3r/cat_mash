@@ -10,7 +10,7 @@ const Container = () => {
         images.forEach((image) => dataCat.push({ score: 0, url: image.url, id: image.id }))
         console.log(dataCat)
         setDataCat(dataCat)
-        console.log(stateDataCat[0].url)
+        console.log(stateDataCat[0])
     }, [])
 
 
