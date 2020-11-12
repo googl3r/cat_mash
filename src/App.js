@@ -2,10 +2,20 @@
 import './App.css';
 import Container from './Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import CatItem from './Components/CatItem';
 
 function App() {
   return (
-    <Container />
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Container} />
+          {/* <Route path="/prendreRdv" component={PrendreRdv} /> */}
+          <Route path="/scoreAllCat" component={CatItem} />
+        </Switch>
+      </BrowserRouter>
+    </>
   );
 }
 

@@ -2,15 +2,23 @@
   text-align: center;
 }
 
-._title {
-  padding-top: 10px;
-  background-color: #61dafb;
-  height: 45px;
+.text {
+  font-size: 15px;
 }
 
 .img-thumbnail {
   padding: .15rem !important;
   background-color: #61dafb !important;
+  border-radius: 50% !important;
+}
+
+.catImage {
+  display: "flex";
+  cursor: "pointer"
+}
+
+.catItem {
+  display: none;
 }
 
 /* @media screen and (max-width: 700px) {
@@ -48,10 +56,9 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  margin-top: -8px;
 }
 
-.text {
+.score {
   color: #61dafb;
   font-size: 12px;
 }
@@ -59,4 +66,19 @@
 .App-link {
   color: #61dafb;
   font-size: 10px;
+}
+
+.CopyRight {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.imgCat {
+  border-radius: 50% !important;
+}
+
+.btn {
+  border-radius: 5px !important;
+  font-size: 12px !important;
 }
